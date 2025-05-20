@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudApi", "CloudApi\CloudApi.csproj", "{EDF9D771-7D96-4E85-A44B-7C617F707CB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinUIClient", "WinUIClient\WinUIClient.csproj", "{8BB071C9-3E75-4E44-AD09-69CA3C561B8C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM64 = Debug|ARM64
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM64 = Release|ARM64
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDF9D771-7D96-4E85-A44B-7C617F707CB9}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{EDF9D771-7D96-4E85-A44B-7C617F707CB9}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{EDF9D771-7D96-4E85-A44B-7C617F707CB9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EDF9D771-7D96-4E85-A44B-7C617F707CB9}.Debug|x64.Build.0 = Debug|Any CPU
+		{EDF9D771-7D96-4E85-A44B-7C617F707CB9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EDF9D771-7D96-4E85-A44B-7C617F707CB9}.Debug|x86.Build.0 = Debug|Any CPU
+		{EDF9D771-7D96-4E85-A44B-7C617F707CB9}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{EDF9D771-7D96-4E85-A44B-7C617F707CB9}.Release|ARM64.Build.0 = Release|Any CPU
+		{EDF9D771-7D96-4E85-A44B-7C617F707CB9}.Release|x64.ActiveCfg = Release|Any CPU
+		{EDF9D771-7D96-4E85-A44B-7C617F707CB9}.Release|x64.Build.0 = Release|Any CPU
+		{EDF9D771-7D96-4E85-A44B-7C617F707CB9}.Release|x86.ActiveCfg = Release|Any CPU
+		{EDF9D771-7D96-4E85-A44B-7C617F707CB9}.Release|x86.Build.0 = Release|Any CPU
+		{8BB071C9-3E75-4E44-AD09-69CA3C561B8C}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{8BB071C9-3E75-4E44-AD09-69CA3C561B8C}.Debug|ARM64.Build.0 = Debug|ARM64
+		{8BB071C9-3E75-4E44-AD09-69CA3C561B8C}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{8BB071C9-3E75-4E44-AD09-69CA3C561B8C}.Debug|x64.ActiveCfg = Debug|x64
+		{8BB071C9-3E75-4E44-AD09-69CA3C561B8C}.Debug|x64.Build.0 = Debug|x64
+		{8BB071C9-3E75-4E44-AD09-69CA3C561B8C}.Debug|x64.Deploy.0 = Debug|x64
+		{8BB071C9-3E75-4E44-AD09-69CA3C561B8C}.Debug|x86.ActiveCfg = Debug|x86
+		{8BB071C9-3E75-4E44-AD09-69CA3C561B8C}.Debug|x86.Build.0 = Debug|x86
+		{8BB071C9-3E75-4E44-AD09-69CA3C561B8C}.Debug|x86.Deploy.0 = Debug|x86
+		{8BB071C9-3E75-4E44-AD09-69CA3C561B8C}.Release|ARM64.ActiveCfg = Release|ARM64
+		{8BB071C9-3E75-4E44-AD09-69CA3C561B8C}.Release|ARM64.Build.0 = Release|ARM64
+		{8BB071C9-3E75-4E44-AD09-69CA3C561B8C}.Release|ARM64.Deploy.0 = Release|ARM64
+		{8BB071C9-3E75-4E44-AD09-69CA3C561B8C}.Release|x64.ActiveCfg = Release|x64
+		{8BB071C9-3E75-4E44-AD09-69CA3C561B8C}.Release|x64.Build.0 = Release|x64
+		{8BB071C9-3E75-4E44-AD09-69CA3C561B8C}.Release|x64.Deploy.0 = Release|x64
+		{8BB071C9-3E75-4E44-AD09-69CA3C561B8C}.Release|x86.ActiveCfg = Release|x86
+		{8BB071C9-3E75-4E44-AD09-69CA3C561B8C}.Release|x86.Build.0 = Release|x86
+		{8BB071C9-3E75-4E44-AD09-69CA3C561B8C}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {779F2F61-9692-4371-BD68-B85271624791}
+	EndGlobalSection
+EndGlobal

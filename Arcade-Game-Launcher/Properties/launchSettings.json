@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Arcade-Game-Launcher (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Arcade-Game-Launcher (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

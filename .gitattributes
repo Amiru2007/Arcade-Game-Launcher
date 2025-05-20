@@ -1,2 +1,14 @@
-# Auto detect text files and perform LF normalization
+# Set default behavior for text files
 * text=auto
+
+# Ensure consistent line endings for code files
+*.cs     text
+*.xaml   text
+*.json   text
+*.xml    text
+*.config text
+
+# Binary files
+*.png    binary
+*.jpg    binary
+*.ico    binary
