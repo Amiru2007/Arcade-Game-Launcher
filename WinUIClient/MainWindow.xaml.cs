@@ -6,10 +6,13 @@ namespace WinUIClient
 {
     public sealed partial class MainWindow : Window
     {
+        // Make ContentFrame public so other classes can access it
+        public Frame ContentFrame => contentFrame;
+
         public MainWindow()
         {
             this.InitializeComponent();
-            ContentFrame.Navigate(typeof(LoginPage));
+            contentFrame.Navigate(typeof(LoginPage));
         }
     }
 }

@@ -4,6 +4,8 @@ namespace WinUIClient
 {
     public partial class App : Application
     {
+        public static MainWindow MainWindow { get; private set; }
+
         public App()
         {
             this.InitializeComponent();
@@ -11,10 +13,8 @@ namespace WinUIClient
 
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
-            m_window = new MainWindow();
-            m_window.Activate();
+            MainWindow = new MainWindow();
+            MainWindow.Activate();
         }
-
-        private Window m_window;
     }
 }

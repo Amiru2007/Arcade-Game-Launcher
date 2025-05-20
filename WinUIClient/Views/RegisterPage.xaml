@@ -10,8 +10,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <StackPanel Padding="20">
-        <TextBox x:Name="UsernameBox" PlaceholderText="Username"/>
-        <TextBox x:Name="EmailBox" PlaceholderText="Email"/>
+        <TextBox x:Name="UsernameTextBox" PlaceholderText="Username"/>
+        <TextBox x:Name="EmailTextBox" PlaceholderText="Email"/>
         <PasswordBox x:Name="PasswordBox"/>
         <Button Content="Register" Click="OnRegisterClick"/>
     </StackPanel>
