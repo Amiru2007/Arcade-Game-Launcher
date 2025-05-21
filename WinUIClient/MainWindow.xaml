@@ -8,5 +8,15 @@
         <MicaBackdrop/>
     </Window.SystemBackdrop>
 
-    <Frame x:Name="contentFrame"/>
+    <Grid x:Name="RootGrid">
+
+        <Border x:Name="AppTitleBar" VerticalAlignment="Top" Background="Transparent">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Image Width="21" Height="20" Source="ms-appx:///Assets/Arcade.png" Margin="13,10,11,11"/>
+                <TextBlock x:Name="AppTitle" Text="Arcade" VerticalAlignment="Top" Margin="0,12,0,0" FontSize="12"/>
+            </StackPanel>
+        </Border>
+
+        <Frame x:Name="contentFrame"/>
+    </Grid>
 </Window>

@@ -1,5 +1,6 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
 using WinUIClient.Views;
 
 namespace WinUIClient
@@ -13,6 +14,19 @@ namespace WinUIClient
         {
             this.InitializeComponent();
             contentFrame.Navigate(typeof(LoginPage));
+
+            this.ExtendsContentIntoTitleBar = true;
+            this.SetTitleBar(AppTitleBar);
+
+            var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            if (localSettings.Values.ContainsKey("authToken"))
+            {
+                contentFrame.Navigate(typeof(HomePage));
+            }
+            else
+            {
+                contentFrame.Navigate(typeof(LoginPage));
+            }
         }
     }
 }
