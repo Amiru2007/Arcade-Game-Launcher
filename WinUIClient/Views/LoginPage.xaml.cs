@@ -1,8 +1,10 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
 using System;
 using System.Net.Http;
 using WinUIClient.Services;
+using Windows.Storage;
 
 namespace WinUIClient.Views
 {
@@ -13,11 +15,19 @@ namespace WinUIClient.Views
         public LoginPage()
         {
             this.InitializeComponent();
+
+            // Set input scope to email address to prevent auto-capitalization etc.
+            var inputScope = new InputScope();
+            inputScope.Names.Add(new InputScopeName(InputScopeNameValue.EmailSmtpAddress));
+            EmailTextBox.InputScope = inputScope;
+
+            EmailTextBox.IsSpellCheckEnabled = false;
+            EmailTextBox.IsTextPredictionEnabled = false;
         }
 
         private async void OnLoginClick(object sender, RoutedEventArgs e)
         {
-            var email = EmailTextBox.Text;
+            var email = EmailTextBox.Text.Trim();
             var password = PasswordBox.Password;
 
             try
@@ -26,24 +36,21 @@ namespace WinUIClient.Views
 
                 if (result != null && !string.IsNullOrEmpty(result.Token))
                 {
-                    // Save token
-                    Windows.Storage.ApplicationData.Current.LocalSettings.Values["authToken"] = result.Token;
+                    // Save login state and info
+                    ApplicationData.Current.LocalSettings.Values["IsLoggedIn"] = true;
+                    ApplicationData.Current.LocalSettings.Values["Username"] = result.Username;
+                    ApplicationData.Current.LocalSettings.Values["AuthToken"] = result.Token;
 
-                    // Show success dialog
-                    ContentDialog dialog = new()
-                    {
-                        Title = "Login Successful",
-                        Content = $"Welcome {result.Username}!",
-                        CloseButtonText = "OK"
-                    };
-                    await dialog.ShowAsync();
+                    // Open MainWindow
+                    App.mainWindow = new MainWindow();
+                    App.mainWindow.Activate();
 
-                    // Navigate to homepage
-                    Frame.Navigate(typeof(HomePage));
+                    // Close LoginWindow if you use a separate one
+                    App.loginWindow?.Close();
                 }
                 else
                 {
-                    throw new Exception("Empty token received.");
+                    throw new Exception("Received empty or null token.");
                 }
             }
             catch (HttpRequestException ex)

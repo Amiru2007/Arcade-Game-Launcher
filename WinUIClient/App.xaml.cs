@@ -1,4 +1,5 @@
 ﻿using Microsoft.UI.Xaml;
+using Windows.Storage;
 
 namespace WinUIClient
 {
@@ -13,8 +14,24 @@ namespace WinUIClient
 
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
-            MainWindow = new MainWindow();
-            MainWindow.Activate();
+            var localSettings = ApplicationData.Current.LocalSettings;
+            var isLoggedIn = (bool?)localSettings.Values["IsLoggedIn"] ?? false;
+
+            Window window;
+
+            if (isLoggedIn)
+            {
+                window = new MainWindow();
+            }
+            else
+            {
+                window = new LoginWindow(); // You need to have this defined if using separate login window
+            }
+
+            window.Activate();
         }
+
+        public static Window loginWindow;
+        public static Window mainWindow;
     }
 }

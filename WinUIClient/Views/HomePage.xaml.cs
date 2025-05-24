@@ -1,6 +1,7 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Windows.Storage;
+using System;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -16,19 +17,23 @@ namespace WinUIClient.Views
         {
             this.InitializeComponent();
         }
-
-        private void OnLogoutClick(object sender, RoutedEventArgs e)
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-            // Clear saved token
+            // Clear any stored data
             var localSettings = ApplicationData.Current.LocalSettings;
-            localSettings.Values.Remove("authToken");
-            localSettings.Values.Remove("username");
+            localSettings.Values.Remove("AuthToken");
 
-            // Navigate back to login
-            if (Window.Current.Content is Frame frame)
-            {
-                frame.Navigate(typeof(LoginPage));
-            }
+            ApplicationData.Current.LocalSettings.Values["IsLoggedIn"] = false;
+            ApplicationData.Current.LocalSettings.Values["Username"] = null;
+
+             ApplicationData.Current.LocalSettings.Values["AuthToken"] = null;
+
+            // Open login window
+            App.loginWindow = new LoginWindow();
+            App.loginWindow.Activate();
+
+            // Close main window
+            App.mainWindow.Close();
         }
     }
 }

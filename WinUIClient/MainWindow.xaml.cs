@@ -1,6 +1,8 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
+using Windows.Networking.NetworkOperators;
+using Windows.UI.ApplicationSettings;
 using WinUIClient.Views;
 
 namespace WinUIClient
@@ -26,6 +28,28 @@ namespace WinUIClient
             else
             {
                 contentFrame.Navigate(typeof(LoginPage));
+            }
+        }
+
+        private void NavigationView_SelectionChanged(object sender, NavigationViewSelectionChangedEventArgs e)
+        {
+            if (e.SelectedItem is NavigationViewItem item)
+            {
+                switch (item.Tag)
+                {
+                    case "GamesPage":
+                        contentFrame.Navigate(typeof(GamesPage));
+                        break;
+                    case "ChatPage":
+                        contentFrame.Navigate(typeof(ChatPage));
+                        break;
+                    case "ProfilePage":
+                        contentFrame.Navigate(typeof(ProfilePage));
+                        break;
+                    case "SettingsPage":
+                        contentFrame.Navigate(typeof(SettingsPage));
+                        break;
+                }
             }
         }
     }
