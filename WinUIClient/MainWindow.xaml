@@ -10,37 +10,5 @@
         <MicaBackdrop/>
     </Window.SystemBackdrop>
 
-    <Grid x:Name="RootGrid">
-
-        <!-- Custom App Title Bar -->
-        <Border x:Name="AppTitleBar" VerticalAlignment="Top" Background="Transparent">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <Image Width="21" Height="20" Source="ms-appx:///Assets/Arcade.png" Margin="13,10,11,11"/>
-                <TextBlock x:Name="AppTitle" Text="Arcade" VerticalAlignment="Top" Margin="0,12,0,0" FontSize="12"/>
-            </StackPanel>
-        </Border>
-
-        <!-- Main Content Area -->
-        <controls:NavigationView x:Name="nvMain"
-                                 Header="Arcade Launcher"
-                                 PaneDisplayMode="Left"
-                                 IsSettingsVisible="False"
-                                 SelectionChanged="NavigationView_SelectionChanged"
-                                 Margin="0,40,0,0">
-            <!-- push below title bar -->
-
-            <controls:NavigationView.MenuItems>
-                <controls:NavigationViewItem Content="Games" Tag="GamesPage" Icon="Play"/>
-                <controls:NavigationViewItem Content="Chat" Tag="ChatPage" Icon="Message"/>
-            </controls:NavigationView.MenuItems>
-
-            <controls:NavigationView.FooterMenuItems>
-                <controls:NavigationViewItem Content="Profile" Tag="ProfilePage" Icon="Contact"/>
-                <controls:NavigationViewItem Content="Settings" Tag="SettingsPage" Icon="Setting"/>
-            </controls:NavigationView.FooterMenuItems>
-
-            <Frame x:Name="contentFrame"/>
-        </controls:NavigationView>
-
-    </Grid>
+    <Frame x:Name="contentFrame"/>
 </Window>
