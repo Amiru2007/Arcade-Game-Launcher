@@ -1,7 +1,17 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Windows.Storage;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Navigation;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -16,24 +26,6 @@ namespace WinUIClient.Views
         public HomePage()
         {
             this.InitializeComponent();
-        }
-        private void LogoutButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Clear any stored data
-            var localSettings = ApplicationData.Current.LocalSettings;
-            localSettings.Values.Remove("AuthToken");
-
-            ApplicationData.Current.LocalSettings.Values["IsLoggedIn"] = false;
-            ApplicationData.Current.LocalSettings.Values["Username"] = null;
-
-             ApplicationData.Current.LocalSettings.Values["AuthToken"] = null;
-
-            // Open login window
-            App.loginWindow = new LoginWindow();
-            App.loginWindow.Activate();
-
-            // Close main window
-            App.mainWindow.Close();
         }
     }
 }

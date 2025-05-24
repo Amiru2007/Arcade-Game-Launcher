@@ -2,7 +2,6 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
 using System;
-using System.Net.Http;
 using WinUIClient.Services;
 using Windows.Storage;
 
@@ -34,42 +33,28 @@ namespace WinUIClient.Views
             {
                 var result = await _apiService.LoginAsync(email, password);
 
-                if (result != null && !string.IsNullOrEmpty(result.Token))
+                ContentDialog dialog = new()
                 {
-                    // Save login state and info
-                    ApplicationData.Current.LocalSettings.Values["IsLoggedIn"] = true;
-                    ApplicationData.Current.LocalSettings.Values["Username"] = result.Username;
-                    ApplicationData.Current.LocalSettings.Values["AuthToken"] = result.Token;
+                    Title = "Login Successful",
+                    Content = $"Welcome {result.Username}!",
+                    CloseButtonText = "OK",
+                    XamlRoot = this.XamlRoot
+                };
+                await dialog.ShowAsync();
 
-                    // Open MainWindow
-                    App.mainWindow = new MainWindow();
-                    App.mainWindow.Activate();
-
-                    // Close LoginWindow if you use a separate one
-                    App.loginWindow?.Close();
-                }
-                else
-                {
-                    throw new Exception("Received empty or null token.");
-                }
+                var mainWindow = App.MainWindow;
+                mainWindow.ContentFrame.Navigate(typeof(HomePage));
             }
-            catch (HttpRequestException ex)
+            catch
             {
-                await new ContentDialog
-                {
-                    Title = "Network Error",
-                    Content = $"Could not connect to server.\n\n{ex.Message}",
-                    CloseButtonText = "OK"
-                }.ShowAsync();
-            }
-            catch (Exception ex)
-            {
-                await new ContentDialog
+                ContentDialog errorDialog = new()
                 {
                     Title = "Login Failed",
-                    Content = $"Invalid credentials or server error.\n\n{ex.Message}",
-                    CloseButtonText = "OK"
-                }.ShowAsync();
+                    Content = "Invalid credentials.",
+                    CloseButtonText = "OK",
+                    XamlRoot = this.XamlRoot
+                };
+                await errorDialog.ShowAsync();
             }
         }
     }
